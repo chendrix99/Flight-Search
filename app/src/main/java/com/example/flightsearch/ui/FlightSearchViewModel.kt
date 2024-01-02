@@ -16,11 +16,11 @@ class FlightSearchViewModel(
     private val _flightUiState = MutableStateFlow(FlightSearchUiState())
     var flightUiState: StateFlow<FlightSearchUiState> = _flightUiState.asStateFlow()
 
-    fun updateUiState(input: String, selection: String) {
+    fun updateUiState(input: String, airportSelected: Boolean) {
         _flightUiState.update { currentState ->
             currentState.copy(
                 userInput = input,
-                currentSelection = selection
+                airportSelected = airportSelected
             )
         }
     }
@@ -46,5 +46,5 @@ class FlightSearchViewModel(
 
 data class FlightSearchUiState(
     val userInput: String = "",
-    val currentSelection: String = ""
+    val airportSelected: Boolean = false
 )
